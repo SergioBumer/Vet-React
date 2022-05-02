@@ -24,7 +24,6 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     e.preventDefault();
 
     if ([nombreMascota, propietario, email, fecha, sintomas].includes("")) {
-      console.log("Hay al menos un campo vacio");
       setError(true);
       return;
     }

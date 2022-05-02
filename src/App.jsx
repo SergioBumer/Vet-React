@@ -51,15 +51,12 @@ function App() {
   useEffect(() => {
     const obtenerLS = () => {
       const pacientesSTR = localStorage.getItem('pacientes') ?? [];
-      console.log(pacientesSTR);
       if (typeof pacientesSTR != "undefined") {
-        console.log("pacientes");
-        console.log(pacientesSTR);
-        const pacientesLS = JSON.parse(pacientesSTR) ?? [];
-        if (pacientesLS.length > 0) {
-          setPacientes(pacientesLS);
+
+        let pacientesNuevos = typeof pacientesSTR === "string" ? JSON.parse(pacientesSTR) : [];
+        if (pacientesNuevos.length > 0) {
+          setPacientes(pacientesNuevos);
         } else {
-          console.log("Setting pacientes");
           setPacientes(basePacientes);
         };
       } else {
